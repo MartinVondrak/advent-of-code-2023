@@ -1,4 +1,4 @@
-package cz.martinvondrak.adventofcode2023.aoc1
+package cz.martinvondrak.adventofcode2023.day1
 
 import java.io.FileReader
 

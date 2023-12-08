@@ -1,4 +1,4 @@
-package cz.martinvondrak.adventofcode2023.aoc2
+package cz.martinvondrak.adventofcode2023.day2
 
 class Game(val id: Int) {
     val moves: List<Move> = mutableListOf()
