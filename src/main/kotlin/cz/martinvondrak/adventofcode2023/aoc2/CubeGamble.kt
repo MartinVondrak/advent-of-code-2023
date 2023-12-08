@@ -17,6 +17,25 @@ class CubeGamble(
         }
     }
 
+    fun calculateSumOfPowerOfGames(): Int {
+        loadGames()
+
+        return games.map { game ->
+            var minRed = 0
+            var minGreen = 0
+            var minBlue = 0
+
+            game.moves.forEach { move ->
+                minRed = if (minRed < move.redCount) move.redCount else minRed
+                minGreen = if (minGreen < move.greenCount) move.greenCount else minGreen
+                minBlue = if (minBlue < move.blueCount) move.blueCount else minBlue
+            }
+
+            minRed * minGreen * minBlue
+        }.sumOf { it }
+
+    }
+
     private fun loadGames() {
         FileReader(filePath).useLines { lines ->
             lines.forEach {

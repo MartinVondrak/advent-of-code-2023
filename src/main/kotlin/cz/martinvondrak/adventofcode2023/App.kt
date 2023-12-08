@@ -6,7 +6,8 @@ package cz.martinvondrak.adventofcode2023
 import cz.martinvondrak.adventofcode2023.aoc1.calculateCalibrationNumber
 import cz.martinvondrak.adventofcode2023.aoc2.CubeGamble
 
-fun main(args: Array<String>) {
+fun main() {
     println("AoC 1.1: " + calculateCalibrationNumber("src/main/resources/aoc1/input.txt"))
     println("AoC 2.1: " + CubeGamble("src/main/resources/aoc2/input.txt").calculateSumOfValidGames())
+    println("AoC 2.2: " + CubeGamble("src/main/resources/aoc2/input.txt").calculateSumOfPowerOfGames())
 }
