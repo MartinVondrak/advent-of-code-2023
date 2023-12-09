@@ -6,10 +6,12 @@ package cz.martinvondrak.adventofcode2023
 import cz.martinvondrak.adventofcode2023.day1.calculateCalibrationNumber
 import cz.martinvondrak.adventofcode2023.day2.CubeGamble
 import cz.martinvondrak.adventofcode2023.day3.EnginePartCalculator
+import cz.martinvondrak.adventofcode2023.day4.Lottery
 
 fun main() {
     println("AoC 1.1: " + calculateCalibrationNumber("src/main/resources/day1/input.txt"))
     println("AoC 2.1: " + CubeGamble("src/main/resources/day2/input.txt").calculateSumOfValidGames())
     println("AoC 2.2: " + CubeGamble("src/main/resources/day2/input.txt").calculateSumOfPowerOfGames())
     println("AoC 3.1: " + EnginePartCalculator("src/main/resources/day3/input.txt").calculateSumOfEnginePartNumbers())
+    println("AoC 4.1: " + Lottery("src/main/resources/day4/input.txt").calculateWinningPoints())
 }

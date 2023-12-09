@@ -12,6 +12,11 @@ class EnginePartCalculator(
         return MatrixToPartNumbersParser(matrix).parse().sumOf { it }
     }
 
+    fun calculateSumOfGearRatios(): Int {
+        loadMatrix()
+        TODO()
+    }
+
     private fun loadMatrix() {
         FileReader(filePath).useLines { lines ->
             lines.forEach {
