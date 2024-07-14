@@ -12,22 +12,39 @@ class Lottery(
     fun calculateWinningPoints(): Int {
         loadCards()
 
-        return cards.map { card ->
-            var matches = 0
-            card.winningNumbers.forEach { winningNumber ->
-                card.scratchNumbers.forEach { scratchNumber ->
-                    if (winningNumber == scratchNumber) {
-                        matches++
-                    }
-                }
-            }
-            matches
+        return cards.map {
+            it.getMatches()
         }.map { matches ->
             when (matches) {
                 0 -> 0.0
                 else -> 2.0.pow(matches - 1)
             }
         }.sumOf { it.toInt() }
+    }
+
+    fun calculateTotalScratchCardsCount(): Int {
+        loadCards()
+        val map: Map<Int, Int> = mutableMapOf()
+
+        cards.reversed().forEach { card ->
+            val cardId = card.id
+
+            if (card.getMatches() == 0) {
+                map[cardId] = 1
+            } else {
+                var count = 0
+                card.winningNumbers.forEach { winningNumber ->
+                    cards.reversed().forEach { otherCard ->
+                        if (otherCard.id != cardId && otherCard.scratchNumbers.contains(winningNumber)) {
+                            count += map[otherCard.id]!!
+                        }
+                    }
+                }
+                map[cardId] = count
+            }
+        }
+
+        return cards.size
     }
 
     private fun loadCards() {

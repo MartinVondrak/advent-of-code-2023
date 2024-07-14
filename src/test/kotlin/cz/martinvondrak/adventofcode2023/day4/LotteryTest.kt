@@ -9,4 +9,10 @@ class LotteryTest {
         val result = Lottery("src/test/resources/day4/input.txt").calculateWinningPoints()
         assertEquals(13, result)
     }
+
+    @Test
+    fun `Task 4_1 example data should produce 30`() {
+        val result = Lottery("src/test/resources/day4/input.txt").calculateTotalScratchCardsCount()
+        assertEquals(30, result)
+    }
 }
